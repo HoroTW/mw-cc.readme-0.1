@@ -8,3 +8,11 @@ The language support is probably implemented in a completely wrong way (I just u
 
 I only had half an hour to do this, so that and that it's not really needed is my excuse for it being so bad - I had fun skimming it.
 
+## Installation
+Since I did for obvious reasons not publish this to the marketplace, you have to install it manually.
+
+To do this just clone this repository into your `~/.vscode/extensions` folder:
+
+```bash
+git clone https://github.com/HoroTW/mw-cc.readme-0.1.git ~/.vscode/extensions/mw-cc.readme-0.1
+```
