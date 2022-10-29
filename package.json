@@ -1,0 +1,53 @@
+{
+    "name": "readme",
+    "displayName": "mwcc-readme",
+    "description": "Special language highlighting for the .readme files in the Middleware CloudComputing class of the FAU.",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.72.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "readme",
+            "aliases": [
+                "mwcc-readme",
+                "readme"
+            ],
+            "extensions": [
+                ".readme"
+            ],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "readme",
+            "scopeName": "source.readme",
+            "path": "./syntaxes/readme.tmLanguage.json"
+        }],
+        "configurationDefaults": {
+            "[readme]": {
+                "editor.semanticHighlighting.enabled": true
+            }
+        },
+        "semanticTokenScopes": [{
+            "language": "readme",
+            "scopes": {
+                "property.readonly": [
+                    "variable.other.constant.property"
+                ]
+            }
+        }]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run esbuild-base -- --minify",
+        "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/main.js --external:vscode --format=cjs --platform=node",
+        "esbuild": "npm run esbuild-base -- --sourcemap",
+        "esbuild-watch": "npm run esbuild-base -- --sourcemap --watch",
+        "test-compile": "tsc -p ./"
+    },
+    "devDependencies": {
+        "esbuild": "^0.15.12"
+    }
+}
